@@ -52,6 +52,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.SECONDARY}`:
         return (
           <Button
+            type={buttonType ?? "submit"}
             label={label}
             severity="secondary"
             className={`p-button ${className} `}
@@ -62,6 +63,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.SUCCESS}`:
         return (
           <Button
+            type={buttonType ?? "submit"}
             label={label}
             severity="success"
             disabled={disabled}
@@ -73,6 +75,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.PRIMARY}`:
         return (
           <Button
+            type={buttonType ?? "submit"}
             label={label}
             disabled={isLoading()}
             icon={isLoading() ? "pi pi-spin pi-spinner" : ""}
@@ -118,6 +121,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.NEXT}`:
         return (
           <Button
+            type={buttonType ?? "submit"}
             icon="pi pi-arrow-right"
             className={`p-button-secondary ${className}`}
             onClick={onClick}
@@ -128,6 +132,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.PREVIOUS}`:
         return (
           <Button
+            type={buttonType ?? "submit"}
             icon="pi pi-arrow-left"
             className={`p-button-secondary  ${className}`}
             onClick={onClick}
@@ -139,6 +144,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.BACK}`:
         return (
           <Button
+            type={buttonType ?? "submit"}
             icon="pi pi-arrow-left"
             className={`mr-2 p-button-text p-button-secondary ${className}`}
             onClick={onClick}
@@ -163,6 +169,7 @@ const AppButton = (props: IButton) => {
         return (
           <Button
             label={label}
+            type={buttonType ?? "submit"}
             icon="pi pi-pencil"
             className={`p-button mr-1 ${className}`}
             tooltip={label ? "" : "Edit"}
