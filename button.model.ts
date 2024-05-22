@@ -22,4 +22,5 @@ export interface IButton {
   className?: string;
   disabled?: boolean;
   label?: string;
+  buttonType?: any;
 }

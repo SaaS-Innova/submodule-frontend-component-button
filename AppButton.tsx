@@ -1,29 +1,30 @@
-import { Button } from 'primereact/button';
-import { useRef, useState } from 'react';
-import _ from 'lodash';
-import { IButton } from './button.model';
-import { BUTTON_TYPE } from './button.enum';
+import { Button } from "primereact/button";
+import { useRef, useState } from "react";
+import _ from "lodash";
+import { IButton } from "./button.model";
+import { BUTTON_TYPE } from "./button.enum";
 
 const AppButton = (props: IButton) => {
-  const { type, onClick, className, onMouseDown, disabled, label } = props;
+  const { type, onClick, className, onMouseDown, disabled, label, buttonType } =
+    props;
   const [loading, setLoading] = useState<boolean>(false);
   const tooltipOptions: any = {
-    position: 'bottom',
+    position: "bottom",
     style: {
-      fontSize: '0.8rem',
+      fontSize: "0.8rem",
     },
   };
 
   const lockButton = useRef<any>(
     _.debounce(() => {
       setLoading(true);
-    }),
+    })
   );
 
   const unLockButton = useRef<any>(
     _.debounce(() => {
       setLoading(false);
-    }, 1000),
+    }, 1000)
   );
 
   const handleOnClick = (e: any) => {
@@ -39,11 +40,12 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.CHECK}`:
         return (
           <Button
+            type={buttonType ?? "submit"}
             label={label}
             disabled={isLoading()}
-            icon={isLoading() ? 'pi pi-spin pi-spinner' : 'pi pi-check'}
+            icon={isLoading() ? "pi pi-spin pi-spinner" : "pi pi-check"}
             className="p-button"
-            onClick={onClick || handleOnClick}
+            onClick={handleOnClick}
           />
         );
 
@@ -73,7 +75,7 @@ const AppButton = (props: IButton) => {
           <Button
             label={label}
             disabled={isLoading()}
-            icon={isLoading() ? 'pi pi-spin pi-spinner' : ''}
+            icon={isLoading() ? "pi pi-spin pi-spinner" : ""}
             className={`p-button ${className}`}
             onClick={onClick || handleOnClick}
           />
@@ -104,7 +106,7 @@ const AppButton = (props: IButton) => {
         return (
           <Button
             icon="pi pi-shield"
-            className={'bg-cyan-500 border-cyan-500 ml-2'}
+            className={"bg-cyan-500 border-cyan-500 ml-2"}
             rounded
             type="button"
             onClick={onClick}
@@ -149,7 +151,7 @@ const AppButton = (props: IButton) => {
             label={label}
             icon="pi pi-plus"
             className={`p-button ${className}`}
-            tooltip={label ? '' : 'Create'}
+            tooltip={label ? "" : "Create"}
             tooltipOptions={tooltipOptions}
             type="button"
             onMouseDown={onMouseDown}
@@ -163,14 +165,14 @@ const AppButton = (props: IButton) => {
             label={label}
             icon="pi pi-pencil"
             className={`p-button mr-1 ${className}`}
-            tooltip={label ? '' : 'Edit'}
+            tooltip={label ? "" : "Edit"}
             tooltipOptions={tooltipOptions}
             onClick={onClick}
           />
         );
 
       default:
-        throw new Error('Button type does not exist');
+        throw new Error("Button type does not exist");
     }
   };
 
@@ -178,5 +180,3 @@ const AppButton = (props: IButton) => {
 };
 
 export default AppButton;
-
-
