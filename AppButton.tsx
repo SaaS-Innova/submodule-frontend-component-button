@@ -3,10 +3,13 @@ import { useRef, useState } from "react";
 import _ from "lodash";
 import { IButton } from "./button.model";
 import { BUTTON_TYPE } from "./button.enum";
+import { TfiReload } from "react-icons/tfi";
+import { useTranslation } from "react-i18next";
 
 const AppButton = (props: IButton) => {
   const { type, onClick, className, onMouseDown, disabled, label, buttonType } =
     props;
+  const { t } = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
   const tooltipOptions: any = {
     position: "bottom",
@@ -176,6 +179,20 @@ const AppButton = (props: IButton) => {
             tooltipOptions={tooltipOptions}
             onClick={onClick}
           />
+        );
+
+      case `${BUTTON_TYPE.MORE_LOAD}`:
+        return (
+          <Button
+            type="button"
+            disabled={isLoading()}
+            tooltip={`${t("components.button.name.moreLoad")}`}
+            className={`p-button ${className}`}
+            onClick={handleOnClick}
+            tooltipOptions={{ position: "top" }}
+          >
+            <TfiReload size={20} />
+          </Button>
         );
 
       default:

@@ -1,6 +1,5 @@
 import { BUTTON_TYPE } from "./button.enum";
 
-
 export interface IButton {
   type:
     | `${BUTTON_TYPE.PRIMARY}`
@@ -14,7 +13,8 @@ export interface IButton {
     | `${BUTTON_TYPE.PREVIOUS}`
     | `${BUTTON_TYPE.ADD}`
     | `${BUTTON_TYPE.BACK}`
-    | `${BUTTON_TYPE.PERMISSION}`;
+    | `${BUTTON_TYPE.PERMISSION}`
+    | `${BUTTON_TYPE.MORE_LOAD}`;
 
   onClick?: (e: any) => void;
   onMouseDown?: (e: any) => void;
