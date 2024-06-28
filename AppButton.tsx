@@ -60,6 +60,7 @@ const AppButton = (props: IButton) => {
             severity="secondary"
             className={`p-button ${className} `}
             onClick={onClick}
+            disabled={disabled}
           />
         );
 
@@ -94,6 +95,7 @@ const AppButton = (props: IButton) => {
             type="button"
             icon="pi pi-times"
             onClick={onClick}
+            disabled={disabled}
           />
         );
       case `${BUTTON_TYPE.DELETE}`:
@@ -105,6 +107,7 @@ const AppButton = (props: IButton) => {
             onClick={onClick}
             tooltip="Delete"
             tooltipOptions={tooltipOptions}
+            disabled={disabled}
           />
         );
 
@@ -118,6 +121,7 @@ const AppButton = (props: IButton) => {
             onClick={onClick}
             tooltip="Permission"
             tooltipOptions={tooltipOptions}
+            disabled={disabled}
           />
         );
 
@@ -130,6 +134,7 @@ const AppButton = (props: IButton) => {
             onClick={onClick}
             tooltip="Next"
             tooltipOptions={tooltipOptions}
+            disabled={disabled}
           />
         );
       case `${BUTTON_TYPE.PREVIOUS}`:
@@ -141,6 +146,7 @@ const AppButton = (props: IButton) => {
             onClick={onClick}
             tooltip="Previous"
             tooltipOptions={tooltipOptions}
+            disabled={disabled}
           />
         );
 
@@ -151,6 +157,7 @@ const AppButton = (props: IButton) => {
             icon="pi pi-arrow-left"
             className={`mr-2 p-button-text p-button-secondary ${className}`}
             onClick={onClick}
+            disabled={disabled}
           />
         );
 
@@ -165,6 +172,7 @@ const AppButton = (props: IButton) => {
             type="button"
             onMouseDown={onMouseDown}
             onClick={onClick}
+            disabled={disabled}
           />
         );
 
@@ -178,6 +186,7 @@ const AppButton = (props: IButton) => {
             tooltip={label ? "" : "Edit"}
             tooltipOptions={tooltipOptions}
             onClick={onClick}
+            disabled={disabled}
           />
         );
 
