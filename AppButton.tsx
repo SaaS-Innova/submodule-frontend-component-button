@@ -7,7 +7,7 @@ import { TfiReload } from "react-icons/tfi";
 import { useTranslation } from "react-i18next";
 
 const AppButton = (props: IButton) => {
-  const { type, onClick, className, onMouseDown, disabled, label, buttonType } =
+  const { type, onClick, className, onMouseDown, disabled, label, buttonType,tooltip } =
     props;
   const { t } = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -92,10 +92,13 @@ const AppButton = (props: IButton) => {
         return (
           <Button
             label={label}
-            type="button"
+            type={buttonType ?? "button"}
             icon="pi pi-times"
             onClick={onClick}
             disabled={disabled}
+            tooltip={tooltip ?? "Cancel"}
+            tooltipOptions={tooltipOptions}
+            className={`${className}`}
           />
         );
       case `${BUTTON_TYPE.DELETE}`:
@@ -203,6 +206,18 @@ const AppButton = (props: IButton) => {
             <TfiReload size={20} />
           </Button>
         );
+        case `${BUTTON_TYPE.CONFIRM}`:
+          return (
+            <Button
+              label={label}
+              type={buttonType ?? "submit"}
+              icon="pi pi-check"
+              className={`p-button-success ${className}`}
+              onClick={onClick}
+              tooltip={tooltip ?? "Confirm"}
+              tooltipOptions={tooltipOptions}
+            />
+          );
 
       default:
         throw new Error("Button type does not exist");

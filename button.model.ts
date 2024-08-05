@@ -14,7 +14,8 @@ export interface IButton {
     | `${BUTTON_TYPE.ADD}`
     | `${BUTTON_TYPE.BACK}`
     | `${BUTTON_TYPE.PERMISSION}`
-    | `${BUTTON_TYPE.MORE_LOAD}`;
+    | `${BUTTON_TYPE.MORE_LOAD}`
+    | `${BUTTON_TYPE.CONFIRM}`;
 
   onClick?: (e: any) => void;
   onMouseDown?: (e: any) => void;
@@ -23,4 +24,5 @@ export interface IButton {
   disabled?: boolean;
   label?: string;
   buttonType?: any;
+  tooltip?: string;
 }
