@@ -15,7 +15,8 @@ export interface IButton {
     | `${BUTTON_TYPE.BACK}`
     | `${BUTTON_TYPE.PERMISSION}`
     | `${BUTTON_TYPE.MORE_LOAD}`
-    | `${BUTTON_TYPE.CONFIRM}`;
+    | `${BUTTON_TYPE.CONFIRM}`
+    | `${BUTTON_TYPE.REFRESH}`;
 
   onClick?: (e: any) => void;
   onMouseDown?: (e: any) => void;

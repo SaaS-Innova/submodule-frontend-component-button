@@ -14,4 +14,5 @@ export enum BUTTON_TYPE {
   PERMISSION = "Permission",
   MORE_LOAD = "More Load",
   CONFIRM = "Confirm",
+  REFRESH = "Refresh",
 }

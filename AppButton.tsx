@@ -5,10 +5,19 @@ import { IButton } from "./button.model";
 import { BUTTON_TYPE } from "./button.enum";
 import { TfiReload } from "react-icons/tfi";
 import { useTranslation } from "react-i18next";
+import { IoRefreshOutline } from "react-icons/io5";
 
 const AppButton = (props: IButton) => {
-  const { type, onClick, className, onMouseDown, disabled, label, buttonType,tooltip } =
-    props;
+  const {
+    type,
+    onClick,
+    className,
+    onMouseDown,
+    disabled,
+    label,
+    buttonType,
+    tooltip,
+  } = props;
   const { t } = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
   const tooltipOptions: any = {
@@ -206,18 +215,29 @@ const AppButton = (props: IButton) => {
             <TfiReload size={20} />
           </Button>
         );
-        case `${BUTTON_TYPE.CONFIRM}`:
-          return (
-            <Button
-              label={label}
-              type={buttonType ?? "submit"}
-              icon="pi pi-check"
-              className={`p-button-success ${className}`}
-              onClick={onClick}
-              tooltip={tooltip ?? "Confirm"}
-              tooltipOptions={tooltipOptions}
-            />
-          );
+      case `${BUTTON_TYPE.CONFIRM}`:
+        return (
+          <Button
+            label={label}
+            type={buttonType ?? "submit"}
+            icon="pi pi-check"
+            className={`p-button-success ${className}`}
+            onClick={onClick}
+            tooltip={tooltip ?? "Confirm"}
+            tooltipOptions={tooltipOptions}
+          />
+        );
+      case `${BUTTON_TYPE.REFRESH}`:
+        return (
+          <Button
+            type="button"
+            disabled={isLoading()}
+            className={`p-button ${className}`}
+            onClick={handleOnClick}
+          >
+            <IoRefreshOutline size={20} />
+          </Button>
+        );
 
       default:
         throw new Error("Button type does not exist");
