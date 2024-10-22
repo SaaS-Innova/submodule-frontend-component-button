@@ -26,4 +26,5 @@ export interface IButton {
   label?: string;
   buttonType?: any;
   tooltip?: string;
+  icon?: string;
 }

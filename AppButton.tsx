@@ -17,6 +17,7 @@ const AppButton = (props: IButton) => {
     label,
     buttonType,
     tooltip,
+    icon,
   } = props;
   const { t } = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -70,6 +71,8 @@ const AppButton = (props: IButton) => {
             className={`p-button ${className} `}
             onClick={onClick}
             disabled={disabled}
+            icon={icon}
+            tooltip={tooltip ?? ""}
           />
         );
 
@@ -210,8 +213,7 @@ const AppButton = (props: IButton) => {
             tooltip={`${t("components.button.name.moreLoad")}`}
             className={`p-button ${className}`}
             onClick={handleOnClick}
-            tooltipOptions={{ position: "top" }}
-          >
+            tooltipOptions={{ position: "top" }}>
             <TfiReload size={20} />
           </Button>
         );
@@ -233,8 +235,7 @@ const AppButton = (props: IButton) => {
             type="button"
             disabled={isLoading()}
             className={`p-button ${className}`}
-            onClick={handleOnClick}
-          >
+            onClick={handleOnClick}>
             <IoRefreshOutline size={20} />
           </Button>
         );
