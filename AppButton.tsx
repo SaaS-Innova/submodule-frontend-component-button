@@ -182,7 +182,7 @@ const AppButton = (props: IButton) => {
             label={label}
             icon="pi pi-plus"
             className={`p-button ${className}`}
-            tooltip={label ? "" : "Create"}
+            tooltip={label ? "" : "Add"}
             tooltipOptions={tooltipOptions}
             type="button"
             onMouseDown={onMouseDown}
