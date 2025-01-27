@@ -123,6 +123,7 @@ const AppButton = (props: IButton) => {
             tooltip="Delete"
             tooltipOptions={tooltipOptions}
             disabled={disabled}
+            label={label}
           />
         );
 
