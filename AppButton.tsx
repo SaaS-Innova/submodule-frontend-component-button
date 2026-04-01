@@ -18,6 +18,7 @@ const AppButton = (props: IButton) => {
     buttonType,
     tooltip,
     icon,
+    disableLoaderWhenDisabled,
   } = props;
   const { t } = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -31,13 +32,13 @@ const AppButton = (props: IButton) => {
   const lockButton = useRef<any>(
     _.debounce(() => {
       setLoading(true);
-    })
+    }),
   );
 
   const unLockButton = useRef<any>(
     _.debounce(() => {
       setLoading(false);
-    }, 1000)
+    }, 1000),
   );
 
   const handleOnClick = (e: any) => {
@@ -46,7 +47,7 @@ const AppButton = (props: IButton) => {
     if (onClick) onClick(e);
   };
 
-  const isLoading = () => disabled || loading;
+  const isLoading = () => loading || (!disableLoaderWhenDisabled && !!disabled);
 
   const renderSwitch = (type: string) => {
     switch (type) {

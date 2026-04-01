@@ -27,4 +27,5 @@ export interface IButton {
   buttonType?: any;
   tooltip?: string;
   icon?: string;
+  disableLoaderWhenDisabled?: boolean;
 }
