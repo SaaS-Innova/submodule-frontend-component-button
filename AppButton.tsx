@@ -49,12 +49,16 @@ const AppButton = (props: IButton) => {
 
   const isLoading = () => loading || (!disableLoaderWhenDisabled && !!disabled);
 
+  const commonProps = {
+    type: buttonType ?? "submit",
+  };
+
   const renderSwitch = (type: string) => {
     switch (type) {
       case `${BUTTON_TYPE.CHECK}`:
         return (
           <Button
-            type={buttonType ?? "submit"}
+            {...commonProps}
             label={label}
             disabled={isLoading()}
             icon={isLoading() ? "pi pi-spin pi-spinner" : "pi pi-check"}
@@ -66,7 +70,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.SECONDARY}`:
         return (
           <Button
-            type={buttonType ?? "submit"}
+            {...commonProps}
             label={label}
             severity="secondary"
             className={`p-button ${className} `}
@@ -80,7 +84,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.SUCCESS}`:
         return (
           <Button
-            type={buttonType ?? "submit"}
+            {...commonProps}
             label={label}
             severity="success"
             disabled={disabled}
@@ -92,7 +96,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.PRIMARY}`:
         return (
           <Button
-            type={buttonType ?? "submit"}
+            {...commonProps}
             label={label}
             disabled={isLoading()}
             icon={isLoading() ? "pi pi-spin pi-spinner" : ""}
@@ -105,7 +109,7 @@ const AppButton = (props: IButton) => {
         return (
           <Button
             label={label}
-            type={buttonType ?? "button"}
+            {...commonProps}
             icon="pi pi-times"
             onClick={onClick}
             disabled={disabled}
@@ -124,6 +128,7 @@ const AppButton = (props: IButton) => {
             tooltip="Delete"
             tooltipOptions={tooltipOptions}
             disabled={disabled}
+            label={label}
           />
         );
 
@@ -144,7 +149,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.NEXT}`:
         return (
           <Button
-            type={buttonType ?? "submit"}
+            {...commonProps}
             icon="pi pi-arrow-right"
             className={`p-button-secondary ${className}`}
             onClick={onClick}
@@ -156,7 +161,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.PREVIOUS}`:
         return (
           <Button
-            type={buttonType ?? "submit"}
+            {...commonProps}
             icon="pi pi-arrow-left"
             className={`p-button-secondary  ${className}`}
             onClick={onClick}
@@ -169,7 +174,7 @@ const AppButton = (props: IButton) => {
       case `${BUTTON_TYPE.BACK}`:
         return (
           <Button
-            type={buttonType ?? "submit"}
+            {...commonProps}
             icon="pi pi-arrow-left"
             className={`mr-2 p-button-text p-button-secondary ${className}`}
             onClick={onClick}
@@ -196,7 +201,7 @@ const AppButton = (props: IButton) => {
         return (
           <Button
             label={label}
-            type={buttonType ?? "submit"}
+            {...commonProps}
             icon="pi pi-pencil"
             className={`p-button mr-1 ${className}`}
             tooltip={label ? "" : "Edit"}
@@ -214,7 +219,8 @@ const AppButton = (props: IButton) => {
             tooltip={`${t("components.button.name.moreLoad")}`}
             className={`p-button ${className}`}
             onClick={handleOnClick}
-            tooltipOptions={{ position: "top" }}>
+            tooltipOptions={{ position: "top" }}
+          >
             <TfiReload size={20} />
           </Button>
         );
@@ -222,7 +228,7 @@ const AppButton = (props: IButton) => {
         return (
           <Button
             label={label}
-            type={buttonType ?? "submit"}
+            {...commonProps}
             icon="pi pi-check"
             className={`p-button-success ${className}`}
             onClick={onClick}
@@ -236,7 +242,8 @@ const AppButton = (props: IButton) => {
             type="button"
             disabled={isLoading()}
             className={`p-button ${className}`}
-            onClick={handleOnClick}>
+            onClick={handleOnClick}
+          >
             <IoRefreshOutline size={20} />
           </Button>
         );
