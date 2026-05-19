@@ -26,6 +26,6 @@ export interface IButton {
   label?: string;
   buttonType?: any;
   tooltip?: string;
-  icon?: string;
+  icon?: string | JSX.Element;
   disableLoaderWhenDisabled?: boolean;
 }
